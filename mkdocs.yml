@@ -4,5 +4,18 @@ site_name: My Docs
 theme:
   name: material
   palette:
-    accent: green
+  # Palette toggle for dark mode
+  - scheme: slate
+    accent: light blue
     primary: orange
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to light mode
+
+  # Palette toggle for light mode
+  - scheme: default
+    accent: orange
+    primary: black
+    toggle:
+      icon: material/lightbulb
+      name: Switch to dark mode
