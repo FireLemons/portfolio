@@ -1,6 +1,6 @@
-# Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# My Portfolio
+### [Find my github here](https://github.com/FireLemons)  
+Contact me at [shenyang128@proton.me](mailto:[shenyang128@proton.me])
 
 ## Commands
 
