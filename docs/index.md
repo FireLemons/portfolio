@@ -4,4 +4,4 @@
 
 Contact me at [shenyang128@proton.me](mailto:[shenyang128@proton.me])  
 
-<- See Projects on the left sidebar
+<- Projects listed on the left
