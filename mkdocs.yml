@@ -2,6 +2,8 @@
 
 site_name: Shen's Works
 theme:
+  features:
+    - navigation.sections
   name: material
   palette:
   # Palette toggle for dark mode
