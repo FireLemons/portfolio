@@ -1,6 +1,8 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - toc:
       permalink: true
 site_name: Shen's Works
