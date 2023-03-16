@@ -2,8 +2,8 @@
 
 A game for developing the ability to estimate the metric equivalent of a customary unit.  
   
-[Play Here](https://firelemons.github.io/ToMetric/)  
-[Repo Here](https://github.com/FireLemons/ToMetric)
+[:fontawesome-solid-gamepad: Play Here](https://firelemons.github.io/ToMetric/)  
+[:octicons-repo-16: Repo Here](https://github.com/FireLemons/ToMetric)
 
 ## Gameplay
 Players are given a customary unit to convert into metric units  
@@ -47,4 +47,5 @@ Players can choose here
 ## Built With
 [![vue.js](./img/vue-day.png#only-light){ style="height: 100px" }](https://vuejs.org/)
 [![vue.js](./img/vue-night.png#only-dark){ style="height: 100px" }](https://vuejs.org/)
-[![materialize](./img/materialize.png){ style="height: 100px" }](https://materializecss.com/)  
+[![materialize](./img/materialize.png){ style="height: 100px" }](https://materializecss.com/)
+
