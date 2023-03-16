@@ -1,7 +1,7 @@
 # My Portfolio
-[Find my github here](https://github.com/FireLemons)  
-[Find the repo for this website here](https://github.com/FireLemons/portfolio)  
+[:octicons-mark-github-16: Find my github here](https://github.com/FireLemons)  
+[:octicons-repo-16: Find the repo for this website here](https://github.com/FireLemons/portfolio)  
 
-Contact me at [shenyang128@proton.me](mailto:[shenyang128@proton.me])  
+[:fontawesome-solid-envelope: shenyang128@proton.me](mailto:[shenyang128@proton.me])  
 
-<- Projects listed on the left
+:fontawesome-solid-arrow-left: Projects listed on the left
