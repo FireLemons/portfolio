@@ -5,7 +5,7 @@ CASA or **C**ourt **A**ppointed **S**pecial **A**dvocate is a national nonprofit
 ## About the App
 This casa app is maintained by volunteers from the [RubyForGood](https://rubyforgood.org/) community. RubyForGood maintains this app with the goal of saving money for CASA organizations so it does not charge for app features if it can help it. It serves about 100-200 monthly users across 4 counties in Maryland.  
 
-[Find the github repo here.](https://github.com/rubyforgood/casa)  
+[:octicons-mark-github-16: Github repo here](https://github.com/rubyforgood/casa)  
 [See a test version of the website here.](https://casa-qa.herokuapp.com/)  
 
 You can log in using the following test emails  
@@ -16,4 +16,9 @@ You can log in using the following test emails
 
  The password is 12345678 for all accounts.
   
-### App Features
+### App Summary
+The primary functions of this app are to  
+
+ - record work done by the volunteer
+ - remind volunteers about upcoming deadlines for tasks
+ - generate reports from data stored in the app
