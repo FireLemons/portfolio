@@ -3,7 +3,7 @@ A calculator that disables buttons that would result in errors
 
 ## C# Version
 The first version.  
-[Repo here](https://github.com/FireLemons/ErrorFreeCalculator)  
+[:octicons-mark-github-16: Repo here](https://github.com/FireLemons/ErrorFreeCalculator)  
   
 ![Error Free Calculator C#](./img/error-free-calculator-c-sharp.png)
 
@@ -14,8 +14,8 @@ This calculator achieves evauluation by passing subsections of the expression re
 </figure>
 
 ## React Version
-[Repo here](https://github.com/FireLemons/ErrorFreeCalculatorReact)  
-[See It Live Here](https://firelemons.github.io/ErrorFreeCalculatorReact/)  
+[:octicons-mark-github-16: Repo here](https://github.com/FireLemons/ErrorFreeCalculatorReact)  
+[:fontawesome-solid-calculator: See It Live Here](https://firelemons.github.io/ErrorFreeCalculatorReact/)  
   
 
 ![Error Free Calculator C#](./img/error-free-calculator-react.png)
