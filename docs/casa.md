@@ -39,6 +39,16 @@ CASA is a [progressive web app](https://web.dev/what-are-pwas/) and has an andro
 
 ### Code Contributions
 
+#### Emancipation Checklist
+#### Javascript Disabled Warning
+
+ - QA
+ - Client Side
+#### Fixed a bug where a user's case contacts include deactivated and unassigned cases
+
+ - bug fix
+ - inactive case support
+ - inactive case assignment support
 
 ### Other Contributions
 #### Weekly Deploy
