@@ -49,6 +49,40 @@ CASA is a [progressive web app](https://web.dev/what-are-pwas/) and has an andro
  - bug fix
  - inactive case support
  - inactive case assignment support
+#### Fixed a bug where volunteers would be emailed about court reports regarding cases they have been unassigned from
+
+ - bug fix
+ - inactive case assignment support
+#### Fixed a bug where the list of recently contacted cases included inactive and unasigned cases
+
+ - bug fix
+ - inactive case support
+ - inactive case assignment support
+#### Fixed a bug where checking whether a volunteer contacted all their cases in 2 weeks included inactive and unassigned cases
+
+ - bug fix
+ - inactive case support
+ - inactive case assignment support
+#### Fixed a bug where checking whether a volunteer is assigned to a tranitioning case included inactive and unassigned cases
+
+ - bug fix
+ - inactive case support
+ - inactive case assignment support
+#### Fixed a bug where inactive and unassigned cases were used in computing the list of volunteers assigned to transitioning cases
+
+ - bug fix
+ - inactive case support
+ - inactive case assignment support
+
+#### Created scripts for git hooks
+These scripts can update the project locally beyond what git alone is capable of. When used in git hooks this can create a seamless development experience saving time and eliminating errors related to an incorrectly configured project.
+The scripts are:
+
+ - **build-assets** compiles css and js
+ - **lint** runs linters for javascript erb and ruby
+ - **migrate-all** runs [migrations](https://guides.rubyonrails.org/active_record_migrations.html) if any are down
+ - **update-dependences** installs dependencies if not already installed
+ - **update-branch** updates the local main branch. If on a branch other than main, the branch's commits are rebased on top of main
 
 ### Other Contributions
 #### Weekly Deploy
