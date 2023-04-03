@@ -15,6 +15,13 @@ The primary functions of this app are to
  - generate reports from data stored in the app
  - allow monitoring of cases and volunteers by supervisors
 
+App Specific Terminology
+
+ - **casa case** represents a youth
+ - **case contact** represents time spent working on a case. Typically involves contacting a person
+ - **emancipaton** the transitioning process for a youth leaving the CASA program
+ - **transition** a youth transitioning out of the CASA program
+
 ### App Archetecture
 #### Backend
 The main framework for RubyForGood's CASA is ruby on rails. Some major rails dependencies that define the app are:
@@ -44,37 +51,16 @@ CASA is a [progressive web app](https://web.dev/what-are-pwas/) and has an andro
 
  - QA
  - Client Side
-#### Fixed a bug where a user's case contacts include deactivated and unassigned cases
+#### Fixed Overlooked Code After Soft Deletes were Implemented
+For reports and record keeping all casa cases and case assignments needed to be stored so instead of deleted, so instead of deleting casa cases they are marked as inactive and case assignemnts are marked as unassigned. Some sections of code did not support the new changes. The bugs were:
+ - A user's list of case contacts included deactivated and unassigned cases
+ - Volunteers would be emailed about court reports regarding cases they have been unassigned from
+ - A volunteer's list of recently contacted cases included inactive and unasigned cases
+ - Checking whether a volunteer contacted all their cases in 2 weeks included inactive and unassigned cases
+ - Checking whether a volunteer is assigned to a tranitioning case included inactive and unassigned cases
+ - Inactive and unassigned cases were used in computing the list of volunteers assigned to transitioning cases
 
- - bug fix
- - inactive case support
- - inactive case assignment support
-#### Fixed a bug where volunteers would be emailed about court reports regarding cases they have been unassigned from
-
- - bug fix
- - inactive case assignment support
-#### Fixed a bug where the list of recently contacted cases included inactive and unasigned cases
-
- - bug fix
- - inactive case support
- - inactive case assignment support
-#### Fixed a bug where checking whether a volunteer contacted all their cases in 2 weeks included inactive and unassigned cases
-
- - bug fix
- - inactive case support
- - inactive case assignment support
-#### Fixed a bug where checking whether a volunteer is assigned to a tranitioning case included inactive and unassigned cases
-
- - bug fix
- - inactive case support
- - inactive case assignment support
-#### Fixed a bug where inactive and unassigned cases were used in computing the list of volunteers assigned to transitioning cases
-
- - bug fix
- - inactive case support
- - inactive case assignment support
-
-#### Created scripts for git hooks
+#### Created Scripts for [git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
 These scripts can update the project locally beyond what git alone is capable of. When used in git hooks this can create a seamless development experience saving time and eliminating errors related to an incorrectly configured project.
 The scripts are:
 
@@ -86,4 +72,5 @@ The scripts are:
 
 ### Other Contributions
 #### Weekly Deploy
+At the time of this writing I have done 85 of 151 deploys
 #### Helping Contributors
