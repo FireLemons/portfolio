@@ -47,12 +47,31 @@ CASA is a [progressive web app](https://web.dev/what-are-pwas/) and has an andro
 ### Code Contributions
 
 #### Emancipation Checklist
+As children leave the CASA program(typically from getting older), CASA volunteers need to make sure their youth(s) are prepared for life. There is a lot to keep track of over a long period of time so they need a checklist to keep track.  
+
+<figure markdown>
+  ![Emancipation Checklist Screenshot](./img/casa-emancipation-checklist.png){ style="width: 40em" }
+  <figcaption>A screenshot of the emancipation checklist as it looks currently</figcaption>
+</figure>
+
+The items in the list are stored in the database. The main items like "Youth has housing." are "emancipation categories" and the subitems like "With friend" are "emancipation options". When a user selects a category or option, an association is made between the casa case and the checklist item.  
+  
+Unlike most of the site, this feature relies on AJAX to save to the database. When a checkbox is clicked, it is disabled until there is a reponse. If the repsonse is successful, the check item is reenabled. If it is unsuccessful, the checkbox is reenabled and reverted to the state it was in before it was checked. An async notifier in the bottom right of the screen displays asynchronous events to the user like waiting for the request and success and error responses.
+
+<figure markdown>
+  ![Async Notifier Screenshot](./img/casa-async-notifier.png){ style="width: 40em" }
+  <figcaption>Here the async notifier is displaying a request completed successfully, a different request is in progress, and the result of the successful request.</figcaption>
+</figure>
+
+The concept of a checklist layout wasn't my design. I wanted to go for something more like a kanban board beacuse more websites use that UI to address a problem like this. I also wanted notes for emanipation categories so users could see why certain items are stuck or not possible to achieve.
+
 #### Javascript Disabled Warning
 
  - QA
  - Client Side
 #### Fixed Overlooked Code After Soft Deletes were Implemented
 For reports and record keeping all casa cases and case assignments needed to be stored so instead of deleted, so instead of deleting casa cases they are marked as inactive and case assignemnts are marked as unassigned. Some sections of code did not support the new changes. The bugs were:
+
  - A user's list of case contacts included deactivated and unassigned cases
  - Volunteers would be emailed about court reports regarding cases they have been unassigned from
  - A volunteer's list of recently contacted cases included inactive and unasigned cases
