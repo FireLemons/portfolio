@@ -89,7 +89,12 @@ The scripts are:
  - **update-dependences** installs dependencies if not already installed
  - **update-branch** updates the local main branch. If on a branch other than main, the branch's commits are rebased on top of main
 
+#### Court Reports
+\<FILL IN\> A major challenge in achieving this was working with the gem [sablon](https://github.com/senny/sablon). Sablon can insert data our app stores into the document but developing with it is difficult. Sablon will not throw errors for syntax making troubleshooting difficult. Sablon's documentation primarily features creating templates using XML which is more difficult than producing the word template using microsoft word for our contributors. Most of our contributors have unix systems which means they are not likely to have microsoft word installed.  
+  
+To address some of these challenges, I wrote a [wiki page](https://github.com/rubyforgood/casa/wiki/How-to-edit-docx-templates---word-document-court-report) about working with sablon. It details how to insert sablon code in the word document and contains strategies for creating the template with minimal troubleshooting.
+
 ### Other Contributions
 #### Weekly Deploy
-At the time of this writing I have done 85 of 151 deploys
+At the time of this writing I have done 86 of 152 deploys
 #### Helping Contributors
