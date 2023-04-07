@@ -45,6 +45,7 @@ CASA is a [progressive web app](https://web.dev/what-are-pwas/) and has an andro
 ## My CASA Contributions
 
 ### Code Contributions
+These are listed in chrononlogical order.
 
 #### Emancipation Checklist
 As children leave the CASA program(typically from getting older), CASA volunteers need to make sure their youth(s) are prepared for life. There is a lot to keep track of over a long period of time so they need a checklist to keep track.  
@@ -78,6 +79,7 @@ For reports and record keeping all casa cases and case assignments needed to be 
  - Checking whether a volunteer contacted all their cases in 2 weeks included inactive and unassigned cases
  - Checking whether a volunteer is assigned to a tranitioning case included inactive and unassigned cases
  - Inactive and unassigned cases were used in computing the list of volunteers assigned to transitioning cases
+ - A supervisor's weekly summary includes cases that have been unassigned from their volunteers
 
 #### Created Scripts for [git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
 These scripts can update the project locally beyond what git alone is capable of. When used in git hooks this can create a seamless development experience saving time and eliminating errors related to an incorrectly configured project.
@@ -89,8 +91,11 @@ The scripts are:
  - **update-dependences** installs dependencies if not already installed
  - **update-branch** updates the local main branch. If on a branch other than main, the branch's commits are rebased on top of main
 
+#### Update Support for the Data Importer
+CASA Organizations can upload a CSV file containing cases, volunteers, or supervisors. Before the importer would show an error when an existing record would be imported. With this feature if an existing record was found by its primary key, the rest of the record would be updated to match the uploaded CSV.
+
 #### Court Reports
-\<FILL IN\> A major challenge in achieving this was working with the gem [sablon](https://github.com/senny/sablon). Sablon can insert data our app stores into the document but developing with it is difficult. Sablon will not throw errors for syntax making troubleshooting difficult. Sablon's documentation primarily features creating templates using XML which is more difficult than producing the word template using microsoft word for our contributors. Most of our contributors have unix systems which means they are not likely to have microsoft word installed.  
+The app can partially fill out a docx court report using available data from the database. A major challenge in achieving this was working with the gem [sablon](https://github.com/senny/sablon). Sablon is the dependency that fills out a template with data but developing with it is difficult. Sablon will not throw errors for code written in templates making troubleshooting difficult. Sablon's documentation primarily features creating templates using XML which is more difficult than producing the word template using microsoft word.  
   
 To address some of these challenges, I wrote a [wiki page](https://github.com/rubyforgood/casa/wiki/How-to-edit-docx-templates---word-document-court-report) about working with sablon. It details how to insert sablon code in the word document and contains strategies for creating the template with minimal troubleshooting.
 
