@@ -97,7 +97,16 @@ CASA Organizations can upload a CSV file containing cases, volunteers, or superv
 #### Court Reports
 The app can partially fill out a docx court report using available data from the database. A major challenge in achieving this was working with the gem [sablon](https://github.com/senny/sablon). Sablon is the dependency that fills out a template with data but developing with it is difficult. Sablon will not throw errors for code written in templates making troubleshooting difficult. Sablon's documentation primarily features creating templates using XML which is more difficult than producing the word template using microsoft word.  
   
-To address some of these challenges, I wrote a [wiki page](https://github.com/rubyforgood/casa/wiki/How-to-edit-docx-templates---word-document-court-report) about working with sablon. It details how to insert sablon code in the word document and contains strategies for creating the template with minimal troubleshooting.
+To address some of these challenges, I wrote a [wiki page](https://github.com/rubyforgood/casa/wiki/How-to-edit-docx-templates---word-document-court-report) about working with sablon. It details how to insert sablon code in the word document and contains strategies for creating the template with minimal troubleshooting.  
+  
+In this area of the app, I have
+
+ - consolidated 2 of Prince George county's templates into a single template
+ - created a custom template for Montgomery county
+ - expanded what data each template can display
+ - added support for a custom template per organization
+ - added file uploads for templates
+ - created a docx inspecting module for testing
 
 ### Other Contributions
 #### Weekly Deploy
