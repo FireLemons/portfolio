@@ -108,6 +108,15 @@ In this area of the app, I have
  - added file uploads for templates
  - created a docx inspecting module for testing
 
+#### Android App
+The android platform supports [progressive web apps(PWAs)](https://web.dev/what-are-pwas/). This CASA app makes use of the PWA support to save time that would be otherwise be spent rewriting the website as an android app. Some major features of PWAs are push notifications and offline support. These are achieved using service workers which are also supported by browsers.
+
+I'm the only person to have worked on this feature so far. I have gotten the casa website configured so it runs in an android web container supporting PWAs. The container pings assetlinks.json for a cryptographic key so it knows the developers of the CASA website are the same as the developers publishing the mobile app. It does include any PWA features yet.
+
+The app is on the play store thanks to Sean, the executive director of Ruby for Good. He created the Ruby for Good play store account for this app. I also worked with him to get a 1pass vault for the CASA team within Ruby for Good. Getting the app configured required some secret keys and we knew it was important for the organization to not lose access.
+
+You can [find it here](https://play.google.com/store/apps/details?id=org.rubyforgood.casa&pli=1) in the play store. There's not too much to see at the moment.
+
 ### Other Contributions
 #### Weekly Deploy
 At the time of this writing I have done 86 of 152 deploys
