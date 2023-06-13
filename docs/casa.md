@@ -67,9 +67,8 @@ Unlike most of the site, this feature relies on AJAX to save to the database. Wh
 The concept of a checklist layout wasn't my design. I wanted to go for something more like a kanban board beacuse more websites use that UI to address a problem like this. I also wanted notes for emanipation categories so users could see why certain items are stuck or not possible to achieve.
 
 #### Javascript Disabled Warning
+A simple warning stating javascript is required for the app.
 
- - QA
- - Client Side
 #### Fixed Overlooked Code After Soft Deletes were Implemented
 For reports and record keeping all casa cases and case assignments needed to be stored so instead of deleted, so instead of deleting casa cases they are marked as inactive and case assignemnts are marked as unassigned. Some sections of code did not support the new changes. The bugs were:
 
@@ -82,7 +81,7 @@ For reports and record keeping all casa cases and case assignments needed to be 
  - A supervisor's weekly summary includes cases that have been unassigned from their volunteers
 
 #### Created Scripts for [git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
-These scripts can update the project locally beyond what git alone is capable of. When used in git hooks this can create a seamless development experience saving time and eliminating errors related to an incorrectly configured project.
+These scripts can update the project locally beyond what git alone is capable of. When called in git hooks these scripts save time spent troubleshooting an out of date project.
 The scripts are:
 
  - **build-assets** compiles css and js
@@ -91,7 +90,7 @@ The scripts are:
  - **update-dependences** installs dependencies if not already installed
  - **update-branch** updates the local main branch. If on a branch other than main, the branch's commits are rebased on top of main
 
-#### Update Support for the Data Importer
+#### Added Update Support for the Data Importer
 CASA Organizations can upload a CSV file containing cases, volunteers, or supervisors. Before the importer would show an error when an existing record would be imported. With this feature if an existing record was found by its primary key, the rest of the record would be updated to match the uploaded CSV.
 
 #### Court Reports
@@ -119,5 +118,37 @@ You can [find it here](https://play.google.com/store/apps/details?id=org.rubyfor
 
 ### Other Contributions
 #### Weekly Deploy
-At the time of this writing I have done 86 of 152 deploys
+I have done about half the total deploys for the app
+
+#### Documentation
+Like many other open source projects, this project relies on the contributions of many different developers. Naturally the casa team would like to save each contributor time spent researching and troubleshooting common processes.
+
+##### Database Diagram
+Linda, a casa maintainer, added a database diagram to casa. It was the default diagram generated from dbdiagram.io using our schema.
+<figure markdown>
+  ![Database Diagram First](./img/database-diagram-v1.png){ style="height: 30em", title="open image in a new tab to see full detail" }
+  <figcaption>The Initial Database Diagram</figcaption>
+</figure>
+
+I wanted to try to modify the diagram so that the connections between foreign keys and tables would be unobstructed by the tables and so the diagram would have an aspect ratio for desktop monitors. While editing the diagram, I realized the app rendered an SVG which allowed me to color the diagram and make the connections between tables even more distinct.
+
+<figure markdown>
+  ![Database Diagram Second](./img/database-diagram-v2.png){ title="open image in a new tab to see full detail" }
+  <figcaption>Version 2</figcaption>
+</figure>
+
+I repeated this process to update the diagram as the schema changed. On one iteration I added colorblind compatable coloring. 
+
+<figure markdown>
+  ![Database Diagram Third](./img/database-diagram-v3.png){ title="open image in a new tab to see full detail" }
+  <figcaption>The last diagram made at dbdiagram.io with a colorblind compatible palette</figcaption>
+</figure>
+
+One day dbdiagram.io stopped rendering SVG diagrams. So I am currently in the process of converting the diagram into a krita project file. Krita is an exceptional free and open source drawing editor. I highly recommend it after working with it for a few years. [Find it here](https://krita.org/).
+
+<figure markdown>
+  ![Database Diagram Krita](./img/database-diagram-v4.svg){ title="open image in a new tab to see full detail" }
+  <figcaption>A section of the schema diagrammed in krita</figcaption>
+</figure>
+
 #### Helping Contributors
