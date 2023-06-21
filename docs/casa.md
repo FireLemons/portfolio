@@ -116,6 +116,9 @@ The app is on the play store thanks to Sean, the executive director of Ruby for 
 
 You can [find it here](https://play.google.com/store/apps/details?id=org.rubyforgood.casa&pli=1) in the play store. There's not too much to see at the moment.
 
+#### Email CSS Learning Experience
+I had been taught that inline CSS was the worst place to organize CSS so when I saw lots of inline CSS in the email templates I wrote some tickets to refactor the CSS into a `<style>` tag. After some work had been done I thought the inline CSS was too egregious and thought it might be intentional so I took another look. My research led me to this page: https://www.campaignmonitor.com/css/ which details email support for various CSS features. It turns out inline CSS is the best way to ensure cross platform compatability. I reverted the changes apologized to the contributors who had helped me refactor and added warnings about the inline CSS in the files.
+
 ### Other Contributions
 #### Weekly Deploy
 I have done about half the total deploys for the app
