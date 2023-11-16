@@ -1,9 +1,9 @@
 # CASA
 ## About CASA
-CASA or **C**ourt **A**ppointed **S**pecial **A**dvocate is a national nonprofit organization serving children in the foster care system. CASA volunteers help chidren by looking out for the child's best interests while they're in the foster care program. Some examples of what CASA volunteers do include making sure their youth has all their identifying documents and making sure their youth has permanent family or other adult connections.
+CASA or **C**ourt **A**ppointed **S**pecial **A**dvocate is a nonprofit serving children in the foster care system. CASA volunteers help chidren by looking out for the child's best interests while they're in the foster care program. Some examples of what CASA volunteers do include making sure the child they look after is doing well in school and making sure their youth has permanent family or other adult connections.
   
 ## About the App
-This casa app is maintained by volunteers from the [RubyForGood](https://rubyforgood.org/) community. RubyForGood maintains this app with the goal of saving money for CASA organizations so it does not charge for app features if it can help it. It serves about 100-200 monthly users across 4 counties in Maryland.  
+This casa app is maintained by volunteers from the [RubyForGood](https://rubyforgood.org/) community. RubyForGood maintains this app with the goal of saving money for CASA organizations so it does not charge for app features if it can help it. It serves about 100-200 active monthly users across 4 counties in Maryland.  
 
 [:octicons-mark-github-16: Github repo here](https://github.com/rubyforgood/casa)  
   
@@ -22,7 +22,7 @@ App Specific Terminology
  - **emancipaton** the transitioning process for a youth leaving the CASA program
  - **transition** a youth transitioning out of the CASA program
 
-### App Archetecture
+### App Architecture
 #### Backend
 The main framework for RubyForGood's CASA is ruby on rails. Some major rails dependencies that define the app are:
 
@@ -35,24 +35,20 @@ The main framework for RubyForGood's CASA is ruby on rails. Some major rails dep
  [Postgres](https://www.postgresql.org/) is our database management system.
 
 #### Hosting
-The app is hosted on [Heroku](https://dashboard.heroku.com). Heroku's built in Github integration is used for our QA(quality assurance) environment meaning our QA envirnment contains the latest changes from the main branch of our repository on github. From the Herkou dashboard the production environment can be manually updated to match QA.
+The app is hosted on [Heroku](https://dashboard.heroku.com). We have a pipeline where continuous integration builds our quality assurance environment(QA) from the latest updates from our github repo. From QA changes are manually verified and manually deployed to our production environment.
 
 #### Frontend
-CASA is a multi page website with [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming)) mixed in. CASA's main javascript framework is [jQuery](https://jquery.com/). [Sass](https://sass-lang.com/) is used to organize css. We use the [plainadmin theme](https://plainadmin.com/) which is built on top of bootstrap 5. Using this theme allows the app to be mobile friendly.  
-  
-CASA is a [progressive web app](https://web.dev/what-are-pwas/) and has an android app as a [trusted web activity](https://developer.chrome.com/docs/android/trusted-web-activity/). This means the website can have app like features like offline mode without having to be remade as an app.
+CASA is a multi page website with [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming)) mixed in. CASA's main javascript framework is [jQuery](https://jquery.com/). Our main styling framework is the [plainadmin theme](https://plainadmin.com/) which is built on top of bootstrap 5. [Sass](https://sass-lang.com/) is used for all styling not provided by plainadmin.
 
 ## My CASA Contributions
 
-### Code Contributions
-These are listed in chrononlogical order.
+### Major Features
 
 #### Emancipation Checklist
 As children leave the CASA program(typically from getting older), CASA volunteers need to make sure their youth(s) are prepared for life. There is a lot to keep track of over a long period of time so they need a checklist to keep track.  
 
 <figure markdown>
   ![Emancipation Checklist Screenshot](./img/casa-emancipation-checklist.png){ style="width: 40em" }
-  <figcaption>A screenshot of the emancipation checklist as it looks currently</figcaption>
 </figure>
 
 The items in the list are stored in the database. The main items like "Youth has housing." are "emancipation categories" and the subitems like "With friend" are "emancipation options". When a user selects a category or option, an association is made between the casa case and the checklist item.  
