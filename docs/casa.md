@@ -1,6 +1,6 @@
 # CASA
 ## About CASA
-CASA or **C**ourt **A**ppointed **S**pecial **A**dvocate is a nonprofit serving children in the foster care system. CASA volunteers help chidren by looking out for the child's best interests while they're in the foster care program. Some examples of what CASA volunteers do include making sure the child they look after is doing well in school and making sure their youth has permanent family or other adult connections.
+CASA or **C**ourt **A**ppointed **S**pecial **A**dvocate is a nonprofit serving children in the foster care system. CASA volunteers help chidren by looking out for the child's best interests while they're in the foster care program. Some examples of what CASA volunteers do include making sure the child they look after is doing well in school and making sure their youth has permanent family connections.
   
 ## About the App
 This casa app is maintained by volunteers from the [RubyForGood](https://rubyforgood.org/) community. RubyForGood maintains this app with the goal of saving money for CASA organizations so it does not charge for app features if it can help it. It serves about 100-200 active monthly users across 4 counties in Maryland.  
@@ -11,9 +11,8 @@ This casa app is maintained by volunteers from the [RubyForGood](https://rubyfor
 The primary functions of this app are to  
 
  - record work done by the volunteer
- - remind volunteers about upcoming deadlines for tasks
+ - remind users about upcoming deadlines or events
  - generate reports from data stored in the app
- - allow monitoring of cases and volunteers by supervisors
 
 App Specific Terminology
 
@@ -51,73 +50,76 @@ As children leave the CASA program(typically from getting older), CASA volunteer
   ![Emancipation Checklist Screenshot](./img/casa-emancipation-checklist.png){ style="width: 40em" }
 </figure>
 
-The items in the list are stored in the database. The main items like "Youth has housing." are "emancipation categories" and the subitems like "With friend" are "emancipation options". When a user selects a category or option, an association is made between the casa case and the checklist item.  
+This was the first feature I made for the project. Unlike the rest of the project at the time, this feature saves to the database via AJAX. At the time, the CSS on the website did not load when javascript was disabled so I assumed the app was javascript reliant. The core maintainers at the time wanted little javascript to make the project easier to maintain.  
   
-Unlike most of the site, this feature relies on AJAX to save to the database. When a checkbox is clicked, it is disabled until there is a reponse. If the repsonse is successful, the check item is reenabled. If it is unsuccessful, the checkbox is reenabled and reverted to the state it was in before it was checked. An async notifier in the bottom right of the screen displays asynchronous events to the user like waiting for the request and success and error responses.
+Everytime a checkbox is clicked, the new state of the form is saved to the database. While the save request is in transit, the checkbox being saved is disabled. If the response indicates the save is successful, the check item is reenabled. If it is unsuccessful, the checkbox is reenabled and reverted to the state it was in before it was clicked. Notifications are shown in the bottom right of the screen.
 
 <figure markdown>
   ![Async Notifier Screenshot](./img/casa-async-notifier.png){ style="width: 40em" }
-  <figcaption>Here the async notifier is displaying a request completed successfully, a different request is in progress, and the result of the successful request.</figcaption>
+  <figcaption>Here the notifier component is displaying a request is in progress, a different request was recently successful, and the result of the successful request.</figcaption>
 </figure>
 
-The concept of a checklist layout wasn't my design. I wanted to go for something more like a kanban board beacuse more websites use that UI to address a problem like this. I also wanted notes for emanipation categories so users could see why certain items are stuck or not possible to achieve.
-
-#### Javascript Disabled Warning
-A simple warning stating javascript is required for the app.
+The concept of a checklist layout wasn't my design. I wanted to go for something more like a kanban board beacuse I felt more websites have it as a solution to address a todo list style problem. I also wanted notes for emancipation categories so users could see why certain items are stuck or not possible to achieve.
 
 #### Fixed Overlooked Code After Soft Deletes were Implemented
-For reports and record keeping all casa cases and case assignments needed to be stored so instead of deleted, so instead of deleting casa cases they are marked as inactive and case assignemnts are marked as unassigned. Some sections of code did not support the new changes. The bugs were:
+To meet record keeping requirements all old casa cases and case assignments to volunteers needed to be stored, so instead of deleting casa cases they are marked as inactive and case assignemnts are marked as unassigned. Some sections of code did not support the new changes. The bugs were:
 
  - A user's list of case contacts included deactivated and unassigned cases
  - Volunteers would be emailed about court reports regarding cases they have been unassigned from
  - A volunteer's list of recently contacted cases included inactive and unasigned cases
  - Checking whether a volunteer contacted all their cases in 2 weeks included inactive and unassigned cases
  - Checking whether a volunteer is assigned to a tranitioning case included inactive and unassigned cases
- - Inactive and unassigned cases were used in computing the list of volunteers assigned to transitioning cases
+ - Inactive and unassigned cases were included in the list of volunteers assigned to transitioning cases
  - A supervisor's weekly summary includes cases that have been unassigned from their volunteers
 
-#### Created Scripts for [git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
-These scripts can update the project locally beyond what git alone is capable of. When called in git hooks these scripts save time spent troubleshooting an out of date project.
-The scripts are:
-
- - **build-assets** compiles css and js
- - **lint** runs linters for javascript erb and ruby
- - **migrate-all** runs [migrations](https://guides.rubyonrails.org/active_record_migrations.html) if any are down
- - **update-dependences** installs dependencies if not already installed
- - **update-branch** updates the local main branch. If on a branch other than main, the branch's commits are rebased on top of main
-
 #### Added Update Support for the Data Importer
-CASA Organizations can upload a CSV file containing cases, volunteers, or supervisors. Before the importer would show an error when an existing record would be imported. With this feature if an existing record was found by its primary key, the rest of the record would be updated to match the uploaded CSV.
+CASA Organizations can upload a CSV file containing cases, volunteers, or supervisors. Before the importer would show an error when an existing record would be imported. This feature made it so an existing record would be updated to match the uploaded CSV.
 
 #### Court Reports
-The app can partially fill out a docx court report using available data from the database. A major challenge in achieving this was working with the gem [sablon](https://github.com/senny/sablon). Sablon is the dependency that fills out a template with data but developing with it is difficult. Sablon will not throw errors for code written in templates making troubleshooting difficult. Sablon's documentation primarily features creating templates using XML which is more difficult than producing the word template using microsoft word.  
+The app can fill out a court report using available data from the database. A major challenge in achieving this was working with the gem [sablon](https://github.com/senny/sablon). Sablon is the dependency that fills out a docx template with data. Sablon will not throw errors for code written in templates making troubleshooting difficult. Sablon's documentation primarily features creating templates using XML to construct word documents but casa templates are made by inserting sablon instructions in a sample docx given to us by the stakeholders.  
   
 To address some of these challenges, I wrote a [wiki page](https://github.com/rubyforgood/casa/wiki/How-to-edit-docx-templates---word-document-court-report) about working with sablon. It details how to insert sablon code in the word document and contains strategies for creating the template with minimal troubleshooting.  
   
 In this area of the app, I have
 
- - consolidated 2 of Prince George county's templates into a single template
- - created a custom template for Montgomery county
- - expanded what data each template can display
+ - consolidated 2 templates for an organization into a single template
  - added support for a custom template per organization
  - added file uploads for templates
- - created a docx inspecting module for testing
+ - created a template for Montgomery county
+ - expanded what data each template can display
 
 #### Android App
-The android platform supports [progressive web apps(PWAs)](https://web.dev/what-are-pwas/). This CASA app makes use of the PWA support to save time that would be otherwise be spent rewriting the website as an android app. Some major features of PWAs are push notifications and offline support. These are achieved using service workers which are also supported by browsers.
+Unfortunately this is an incomplete feature and development has hit a roadblock. The plan was to build the app as a [progressive web app(PWA)](https://web.dev/what-are-pwas/). PWA technology allows us to save time that would be otherwise be spent rewriting the website as an android app by simply extending the webapp. We planned to add push notifications and offline support using PWA technology.
 
-I'm the only person to have worked on this feature so far. I have gotten the casa website configured so it runs in an android web container supporting PWAs. The container pings assetlinks.json for a cryptographic key so it knows the developers of the CASA website are the same as the developers publishing the mobile app. It does include any PWA features yet.
+The app store is requiring this app to meet a newer API level. However before the app can be updated, the app is required to conform to the play store's new data privacy policy which includes features like a way for users to request all their data be deleted.  
 
-The app is on the play store thanks to Sean, the executive director of Ruby for Good. He created the Ruby for Good play store account for this app. I also worked with him to get a 1pass vault for the CASA team within Ruby for Good. Getting the app configured required some secret keys and we knew it was important for the organization to not lose access.
+I had gotten the casa website configured so it runs in an android web container supporting PWAs. The app pings `assetlinks.json` for a cryptographic key so it knows the developers of the CASA website are the same as the developers publishing the mobile app.
+
+This feature required the casa team to keep track of a cryptgraphic certificate like file and the password to the play account. We noticed at this point we had many secrets across many services to manage so to help us stay organized, the casa team created a 1password vault in response to our growing collection.
 
 You can [find it here](https://play.google.com/store/apps/details?id=org.rubyforgood.casa&pli=1) in the play store. There's not too much to see at the moment.
 
-#### Email CSS Learning Experience
-I had been taught that inline CSS was the worst place to organize CSS so when I saw lots of inline CSS in the email templates I wrote some tickets to refactor the CSS into a `<style>` tag. After some work had been done I thought the inline CSS was too egregious and thought it might be intentional so I took another look. My research led me to this page: https://www.campaignmonitor.com/css/ which details email support for various CSS features. It turns out inline CSS is the best way to ensure cross platform compatability. I reverted the changes apologized to the contributors who had helped me refactor and added warnings about the inline CSS in the files.
+#### Created Scripts for [git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+
+[See them here](https://github.com/rubyforgood/casa/tree/main/bin/git_hooks)
+
+These scripts are designed to cut down on the workload from local project management. When configured like the examples in the readme, local development can be reduced to code, commit, and push; entirely skipping steps like dependency management and keeping the branch updated.
+
+#### Readme Overhaul
+The README of a github repo is what contributors see first. I wanted to make sure anyone looking to help could find what they were looking for and fast.  
+
+ - Cut down on irrelevant text
+ - Organized installation instructions by platform
+ - Re-described the app from the perspective of someone serving in a CASA organization to a developer's perspective
+
+#### Github Workflow Management
+Github graciously provides very powerful automation tools for free. A few minutes spent configuring a yml file could easily result in hundreds of hours of automated work.
+
+I've helped add 4 workflows that check all code contribution requests for errors and quality. Overall setting up these workflows has probably taken less than 2 hours total but has made more of an impact than all of my other contributions in this area.
 
 ### Other Contributions
 #### Weekly Deploy
-I have done about half the total deploys for the app
+I do all the deploys nowadays.
 
 #### Documentation
 Like many other open source projects, this project relies on the contributions of many different developers. Naturally the casa team would like to save each contributor time spent researching and troubleshooting common processes.
